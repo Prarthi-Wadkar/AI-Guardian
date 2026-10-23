@@ -80,7 +80,7 @@ def main():
 
             # --- Day 4: loitering ---
             if person_first_seen_time is None:
-                # first frame we've seen them in — start the clock
+                
                 person_first_seen_time = datetime.now()
             else:
                 duration = (datetime.now() - person_first_seen_time).total_seconds()
@@ -88,16 +88,15 @@ def main():
                 if duration > config.LOITER_SECONDS:
                     print(f"⚠️ LOITERING: person present for {duration:.1f}s")
 
-                    # --- Day 5: sound alert (only once per event, not every frame) ---
-                    # --- Day 6: snapshot (only once per event, not every frame) ---
+                    
                     if not snapshot_taken_for_this_event:
                         play_alert_sound()
                         save_snapshot(frame)
                         snapshot_taken_for_this_event = True
 
-        # After checking ALL boxes in this frame (note: same indent as "for", not inside it)
+       
         if not person_seen_this_frame:
-            # nobody here this frame — reset everything for the next time someone appears
+           
             person_first_seen_time = None
             snapshot_taken_for_this_event = False
 
