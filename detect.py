@@ -1,8 +1,3 @@
-# detect.py
-# Phase 1: The Brain
-# Goal: read camera feed -> run YOLO on each frame -> show detections live
-# No "suspicious" logic yet. Just confirm the model SEES things correctly.
-
 import cv2
 import time
 from ultralytics import YOLO
@@ -30,10 +25,10 @@ def main():
             print("Failed to grab frame. Stream may have dropped.")
             break
 
-        # Run YOLO detection on this frame
+        
         results = model(frame, conf=config.CONFIDENCE_THRESHOLD, verbose=False)
 
-        # results[0].plot() draws boxes + labels on the frame automatically
+        
         annotated_frame = results[0].plot()
 
         # FPS calculation
